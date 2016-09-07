@@ -27,14 +27,14 @@ RUN \
 RUN gem install bundler --no-ri --no-rdoc
 
 # Install node
-ENV NODEJS_DOWNLOAD_SHA256 c6e278b612b53c240ddf85521403e55abfd8f0201d2f2c7e3d2c21383054aacd
-ADD https://nodejs.org/dist/v5.10.1/node-v5.10.1.tar.gz /tmp/
+ENV NODEJS_DOWNLOAD_SHA256 d7742558bb3331e41510d6e6f1f7b13c0527aecc00a63c3e05fcfd44427ff778
+ADD https://nodejs.org/dist/v6.5.0/node-v6.5.0.tar.gz /tmp/
 
 RUN \
   cd /tmp && \
-  echo "$NODEJS_DOWNLOAD_SHA256 *node-v5.10.1.tar.gz" | sha256sum -c - && \
-  tar xvzf node-v5.10.1.tar.gz && \
-  rm -f node-v5.10.1.tar.gz && \
+  echo "$NODEJS_DOWNLOAD_SHA256 *node-v6.5.0.tar.gz" | sha256sum -c - && \
+  tar xvzf node-v6.5.0.tar.gz && \
+  rm -f node-v6.5.0.tar.gz && \
   cd node-v* && \
   ./configure && \
   CXX="g++ -Wno-unused-local-typedefs" make && \
