@@ -5,8 +5,7 @@ RUN apt-get update
 RUN apt-get -y upgrade
 
 RUN apt-get -y install build-essential zlib1g-dev libssl-dev \
-               libreadline6-dev libyaml-dev git python-software-properties \
-               fontconfig libjpeg8 libjpeg-turbo8 libicu52
+               libreadline6-dev libyaml-dev git python-software-properties
 
 ENV RUBY_DOWNLOAD_SHA256 ba5ba60e5f1aa21b4ef8e9bf35b9ddb57286cb546aac4b5a28c71f459467e507
 ADD https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.gz /tmp/
@@ -45,16 +44,8 @@ RUN \
 
 RUN npm install yarn@0.19.1 -g
 
-# Download phantomjs build (see README)
-RUN \
-  cd /tmp && \
-  git clone https://github.com/digitpaint/phantomjs-build.git && \
-  cd phantomjs-build && \
-  cp bin/phantomjs /usr/local/bin/ && \
-  cd /tmp && \
-  rm -rf /tmp/phantomjs-build
 
 # Install extra dependencies
 # separated from the compile dependencies for node and ruby
 # to make use of docker build layers
-RUN apt-get -y install zip yui-compressor curl
+RUN apt-get -y install zip curl
