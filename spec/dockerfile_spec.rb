@@ -24,7 +24,7 @@ describe "Dockerfile" do
   end
 
   it "ubuntu" do
-    expect(os_version).to include("Ubuntu 14")
+    expect(os_version).to include("Ubuntu 16")
   end
 
   describe command("ruby -v") do

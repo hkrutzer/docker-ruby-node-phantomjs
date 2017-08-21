@@ -1,11 +1,10 @@
-FROM ubuntu:14.04
+FROM buildpack-deps:xenial
 MAINTAINER Flurin Egger <flurin@digitpaint.nl>
 
 RUN apt-get update
 RUN apt-get -y upgrade
 
-RUN apt-get -y install build-essential zlib1g-dev libssl-dev \
-               libreadline6-dev libyaml-dev git python-software-properties
+RUN apt-get -y install software-properties-common
 
 ENV RUBY_DOWNLOAD_SHA256 ba5ba60e5f1aa21b4ef8e9bf35b9ddb57286cb546aac4b5a28c71f459467e507
 ADD https://cache.ruby-lang.org/pub/ruby/2.3/ruby-2.3.0.tar.gz /tmp/
