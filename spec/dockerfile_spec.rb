@@ -31,16 +31,16 @@ describe "Dockerfile" do
     its(:stdout) { should match /2\.3\.0p0/ }
   end
 
-  describe command("node -v") do
-    its(:stdout) { should match /6\.5\.0/ }
+  describe command("node --version") do
+    its(:stdout) { should match /8\.4\.0/ }
   end
 
   describe command("npm -v") do
-    its(:stdout) { should match /3\.10\.3/ }
+    its(:stdout) { should match /5\.3\.0/ }
   end
 
   describe command("yarn --version") do
-    its(:stdout) { should match /0\.19\.1/ }
+    its(:stdout) { should match /0\.27\.5/ }
   end
 
   def os_version
