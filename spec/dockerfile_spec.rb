@@ -28,7 +28,7 @@ describe "Dockerfile" do
   end
 
   describe command("ruby -v") do
-    its(:stdout) { should match /2\.3\.0p0/ }
+    its(:stdout) { should match /2\.3/ }
   end
 
   describe command("node --version") do
