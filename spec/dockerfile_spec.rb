@@ -24,41 +24,23 @@ describe "Dockerfile" do
   end
 
   it "ubuntu" do
-    expect(os_version).to include("Ubuntu 14")
-  end
-
-  # Zip and yiu-compressor for roger release
-  %w{git zip yui-compressor}.each do |p|
-    it "installs package #{p}" do
-      expect(package(p)).to be_installed
-    end
-  end
-
-  # PhantomJS runtime dependencies
-  %w{fontconfig libjpeg8 libjpeg-turbo8 libicu52}.each do |p|
-    it "installs package #{p}" do
-      expect(package(p)).to be_installed
-    end
+    expect(os_version).to include("Ubuntu 16")
   end
 
   describe command("ruby -v") do
-    its(:stdout) { should match /2\.3\.0p0/ }
+    its(:stdout) { should match /2\.3/ }
   end
 
-  describe command("node -v") do
-    its(:stdout) { should match /6\.5\.0/ }
+  describe command("node --version") do
+    its(:stdout) { should match /8\.4\.0/ }
   end
 
   describe command("npm -v") do
-    its(:stdout) { should match /3\.10\.3/ }
+    its(:stdout) { should match /5\.3\.0/ }
   end
 
   describe command("yarn --version") do
-    its(:stdout) { should match /0\.19\.1/ }
-  end
-
-  describe command("phantomjs -v") do
-    its(:stdout) { should match /2\.1\.1/ }
+    its(:stdout) { should match /0\.27\.5/ }
   end
 
   def os_version
