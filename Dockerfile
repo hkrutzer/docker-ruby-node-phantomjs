@@ -8,7 +8,7 @@ RUN apt-get -y install software-properties-common zip rsync
 
 # Install Ruby
 RUN apt-add-repository ppa:brightbox/ruby-ng && apt-get update
-RUN apt-get -y install ruby2.3 ruby2.3-dev
+RUN apt-get -y install ruby2.5 ruby2.5-dev
 
 RUN gem install bundler --no-ri --no-rdoc
 
