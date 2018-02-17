@@ -56,4 +56,4 @@ RUN npm install yarn@1.3.2 -g
 # Install extra dependencies
 # separated from the compile dependencies for node and ruby
 # to make use of docker build layers
-RUN apt-get -y install zip curl
+RUN apt-get -y install zip curl rsync
