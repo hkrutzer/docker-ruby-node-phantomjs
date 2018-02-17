@@ -1,10 +1,10 @@
-FROM buildpack-deps:xenial
+FROM buildpack-deps:bionic
 MAINTAINER Flurin Egger <flurin@digitpaint.nl>
 
 RUN apt-get update
 RUN apt-get -y upgrade
 
-RUN apt-get -y install software-properties-common
+RUN apt-get -y install software-properties-common zip rsync
 
 # Install Ruby
 RUN apt-add-repository ppa:brightbox/ruby-ng && apt-get update
@@ -52,8 +52,3 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 RUN npm install yarn@1.3.2 -g
-
-# Install extra dependencies
-# separated from the compile dependencies for node and ruby
-# to make use of docker build layers
-RUN apt-get -y install zip curl rsync
