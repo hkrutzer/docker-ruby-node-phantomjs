@@ -7,8 +7,7 @@ RUN apt-get -y upgrade
 RUN apt-get -y install software-properties-common
 
 # Install Ruby
-RUN apt-add-repository ppa:brightbox/ruby-ng
-RUN apt-get update
+RUN apt-add-repository ppa:brightbox/ruby-ng && apt-get update
 RUN apt-get -y install ruby2.3 ruby2.3-dev
 
 RUN gem install bundler --no-ri --no-rdoc
