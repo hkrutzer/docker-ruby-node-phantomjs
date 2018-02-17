@@ -32,15 +32,11 @@ describe "Dockerfile" do
   end
 
   describe command("node --version") do
-    its(:stdout) { should match /8\.9\.3/ }
-  end
-
-  describe command("npm -v") do
-    its(:stdout) { should match /5\.5\.1/ }
+    its(:stdout) { should match /10\.8\.0/ }
   end
 
   describe command("yarn --version") do
-    its(:stdout) { should match /1\.3\.2/ }
+    its(:stdout) { should match /1\.9\.4/ }
   end
 
   def os_version
